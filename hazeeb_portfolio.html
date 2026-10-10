@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f5f5f7">
+<meta name="description" content="Hazeeb P N — product, operations, healthcare technology and partnerships.">
+<title>Hazeeb P N — Product, Built to Matter</title>
+<style>
+  :root {
+    --bg: #f5f5f7;
+    --ink: #1d1d1f;
+    --muted: #6e6e73;
+    --blue: #06c;
+    --line: rgba(29,29,31,.12);
+    --card: #fff;
+    --radius: 28px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .nav {
+    position: sticky; top: 0; z-index: 20; height: 54px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 max(24px, calc((100% - 1120px)/2));
+    background: rgba(245,245,247,.82); backdrop-filter: saturate(180%) blur(18px);
+    border-bottom: 1px solid rgba(0,0,0,.06);
+  }
+  .brand { font-weight: 650; letter-spacing: -.03em; }
+  .navlinks { display: flex; gap: 27px; font-size: 12px; color: #424245; }
+  .navlinks a:hover, .textlink:hover { text-decoration: underline; }
+  .menu { display: none; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .hero {
+    min-height: 650px; padding: 105px 24px 88px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: radial-gradient(ellipse at 50% 75%, #e5e5ea 0%, transparent 52%);
+  }
+  .eyebrow { color: var(--muted); text-transform: uppercase; letter-spacing: .16em; font-size: 11px; font-weight: 700; }
+  h1 { font-size: clamp(54px, 9vw, 104px); line-height: .98; letter-spacing: -.075em; margin: 20px 0 24px; font-weight: 720; }
+  .hero h2 { font-size: clamp(24px, 4vw, 42px); letter-spacing: -.045em; line-height: 1.13; max-width: 790px; margin: 0; font-weight: 600; }
+  .sub { max-width: 650px; font-size: 18px; line-height: 1.6; color: var(--muted); margin: 22px auto 28px; }
+  .actions { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .button { display: inline-flex; align-items: center; gap: 8px; padding: 12px 19px; border-radius: 999px; background: var(--blue); color: white; font-size: 14px; font-weight: 600; transition: transform .2s, background .2s; }
+  .button:hover { transform: translateY(-2px); background: #0077ed; }
+  .textlink { color: var(--blue); font-size: 15px; }
+  .arrow { font-size: 18px; }
+  .section { padding: 94px 0; }
+  .sectionhead { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 36px; }
+  .section h2 { font-size: clamp(36px, 5vw, 58px); line-height: 1.02; letter-spacing: -.06em; margin: 12px 0 0; }
+  .sectionintro { max-width: 430px; color: var(--muted); line-height: 1.65; font-size: 16px; margin: 0; }
+  .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+  .card { background: var(--card); border-radius: var(--radius); padding: 30px; overflow: hidden; }
+  .wide { grid-column: span 7; }
+  .narrow { grid-column: span 5; }
+  .third { grid-column: span 4; }
+  .dark { background: #1d1d1f; color: white; }
+  .bluecard { background: #e8f2ff; }
+  .tag { display: inline-block; padding: 7px 10px; border: 1px solid currentColor; border-radius: 99px; font-size: 11px; opacity: .72; margin: 0 5px 7px 0; }
+  .card h3 { font-size: 27px; line-height: 1.12; letter-spacing: -.045em; margin: 17px 0 12px; }
+  .card p { line-height: 1.65; color: var(--muted); margin: 0; font-size: 15px; }
+  .dark p { color: #b5b5bb; }
+  .metric { font-size: clamp(58px, 7vw, 86px); font-weight: 700; letter-spacing: -.08em; line-height: 1; margin: 28px 0 12px; }
+  .metriclabel { font-size: 14px; color: var(--muted); }
+  .dark .metriclabel { color: #b5b5bb; }
+  .orbital {
+    height: 170px; margin: 25px -5px 0; position: relative; display: grid; place-items: center;
+    background: radial-gradient(circle at center, #fff 0 12%, transparent 13%), radial-gradient(circle at center, #dbeafe 0 25%, transparent 26%);
+  }
+  .orbital:before, .orbital:after { content:""; position:absolute; border:1px solid #a8c8f0; border-radius:50%; width:220px; height:90px; transform:rotate(-25deg); }
+  .orbital:after { transform:rotate(25deg); }
+  .orbital span { width:14px;height:14px;background:#06c;border-radius:50%;z-index:1;box-shadow:0 0 0 9px rgba(0,102,204,.1); }
+  .timeline { display: grid; grid-template-columns: 170px 1fr; gap: 30px; padding: 28px 0; border-top: 1px solid var(--line); }
+  .timeline:first-child { border-top: 0; }
+  .date { color: var(--muted); font-size: 13px; line-height: 1.6; }
+  .role { font-size: 24px; letter-spacing: -.04em; margin: 0 0 4px; }
+  .company { font-size: 15px; color: var(--muted); margin-bottom: 13px; }
+  .timeline p { max-width: 730px; margin: 0; line-height: 1.7; color: #424245; font-size: 15px; }
+  .edu { padding: 25px 0; border-top: 1px solid var(--line); }
+  .edu:first-child { border-top: 0; }
+  .edu h3 { margin: 0 0 7px; font-size: 20px; letter-spacing: -.03em; }
+  .edu p { color: var(--muted); margin: 0; line-height: 1.6; font-size: 14px; }
+  .contact { background: #1d1d1f; color: white; border-radius: 34px; padding: clamp(32px, 7vw, 76px); text-align: center; }
+  .contact h2 { font-size: clamp(42px, 7vw, 78px); max-width: 780px; margin: 18px auto; }
+  .contact p { color: #b5b5bb; max-width: 550px; margin: 0 auto 26px; line-height: 1.7; }
+  .contact .email { color: #9ccaff; }
+  footer { padding: 30px 24px 40px; color: var(--muted); font-size: 12px; }
+  .footerinner { max-width: 1120px; margin: auto; display:flex; justify-content:space-between; gap: 16px; flex-wrap:wrap; }
+  @media (max-width: 760px) {
+    .nav { padding: 0 20px; }
+    .navlinks { gap: 14px; font-size: 11px; }
+    .hero { min-height: 590px; padding-top: 80px; }
+    .sub { font-size: 16px; }
+    .section { padding: 65px 0; }
+    .sectionhead { display:block; }
+    .sectionintro { margin-top: 18px; }
+    .wide, .narrow, .third { grid-column: span 12; }
+    .timeline { grid-template-columns: 1fr; gap: 8px; }
+    .card { padding: 25px; border-radius: 23px; }
+  }
+  @media (max-width: 430px) {
+    .navlinks a:nth-child(2) { display:none; }
+    .hero { min-height: 540px; }
+    .actions { gap: 17px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main navigation">
+  <a class="brand" href="#top">HAZEEB P N</a>
+  <div class="navlinks">
+    <a href="#work">Selected work</a>
+    <a href="#experience">Experience</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="eyebrow">Product · Operations · Partnerships</div>
+  <h1>Make technology<br>matter.</h1>
+  <h2>I turn complex ideas into products people can use — and businesses can scale.</h2>
+  <p class="sub">Product manager working at the intersection of healthcare, technology and commercial execution. From digital health infrastructure to AI-assisted tools and strategic partnerships.</p>
+  <div class="actions">
+    <a class="button" href="#work">Explore my work <span class="arrow">↘</span></a>
+    <a class="textlink" href="mailto:hazeeb.pn@gmail.com">Let’s talk <span class="arrow">↗</span></a>
+  </div>
+</header>
+
+<main>
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">Selected work</div><h2>From strategy<br>to shipped product.</h2></div>
+      <p class="sectionintro">A cross-functional track record spanning healthcare infrastructure, AI-enabled experiences, logistics partnerships and early-stage product building.</p>
+    </div>
+    <div class="grid">
+      <article class="card wide dark">
+        <span class="tag">Digital health</span><span class="tag">Interoperability</span><span class="tag">AI</span>
+        <h3>Making healthcare systems work better together.</h3>
+        <p>At Telth Healthcare, leading product and operations across five business verticals, with work spanning patient identity, care delivery, payments and diagnostic workflows across India, the UK and US.</p>
+        <div class="orbital" aria-hidden="true"><span></span></div>
+      </article>
+      <article class="card narrow bluecard">
+        <div class="eyebrow">ABDM · FHIR R4</div>
+        <div class="metric">01</div>
+        <h3>Health data, connected.</h3>
+        <p>Led India’s ABDM integration to Milestone 1, including the ABHA creation flow and a FHIR R4 data transformer.</p>
+      </article>
+      <article class="card third">
+        <div class="eyebrow">AI-assisted product</div>
+        <h3>Recommendations with a purpose.</h3>
+        <p>Designed an AI-assisted diagnostic test recommendation engine and a bilingual Tamil/English health assistant.</p>
+      </article>
+      <article class="card third dark">
+        <div class="eyebrow">Logistics × fintech</div>
+        <h3>Partnerships that open new channels.</h3>
+        <p>At Truckrr, forged a partnership with a Tamil Nadu state transport institution and closed a co-branded FASTag deal with a banking partner.</p>
+      </article>
+      <article class="card third">
+        <div class="eyebrow">Founder experience</div>
+        <div class="metric">2,000</div>
+        <div class="metriclabel">daily active users at peak</div>
+        <h3>Built for real adoption.</h3>
+        <p>Co-built Weiilla, a social chat platform with built-in monetization features, and grew it to 2,000 daily active users.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experience" style="background:#fff;">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">Career</div><h2>Different industries.<br>One way of thinking.</h2></div>
+      <p class="sectionintro">I work across product, delivery, commercial relationships and the details required to get things live.</p>
+    </div>
+    <div class="timeline">
+      <div class="date">Mar 2021 — Present<br>Chennai, India</div>
+      <div><h3 class="role">Product Manager</h3><div class="company">Telth Healthcare Network</div><p>Lead product and operations across Care@Home, Care Plan, T Mart, G-Med ID and Telth Pay Card. Drive ABDM integration, AI-assisted diagnostic recommendations, bilingual health assistance, payment partnerships and production software deployments on AWS.</p></div>
+    </div>
+    <div class="timeline">
+      <div class="date">Jan 2024 — Present<br>Chennai, India</div>
+      <div><h3 class="role">Founding Member</h3><div class="company">Truckrr Information Services</div><p>Joined during early build-out of a logistics and trucking technology platform. Established a partnership with a Tamil Nadu state transport institution and helped open a fintech-linked revenue channel through a co-branded FASTag partnership.</p></div>
+    </div>
+    <div class="timeline">
+      <div class="date">Jan 2023 — Sep 2024<br>London, UK</div>
+      <div><h3 class="role">Co-Founder</h3><div class="company">Weiilla</div><p>Co-built a social chat platform with built-in monetization, scaling to 2,000 daily active users. The experience sharpened my view of localized go-to-market execution and partnership risk.</p></div>
+    </div>
+    <div class="timeline">
+      <div class="date">Jun 2019 — Feb 2021<br>India</div>
+      <div><h3 class="role">Business Analyst</h3><div class="company">Tranxit Technology Solution Pvt. Ltd.</div><p>Managed up to 30 client accounts per month, coordinating requirements and delivery for custom software. Drove upselling of additional features, increasing net client value by at least 150%, and worked on projects including Sasai Fintech.</p></div>
+    </div>
+    <div class="timeline">
+      <div class="date">Aug 2018 — May 2019</div>
+      <div><h3 class="role">Business Analyst</h3><div class="company">BlazeDream Technologies Pvt. Ltd.</div><p>Worked in business analysis within a software technology environment.</p></div>
+    </div>
+    <div class="timeline">
+      <div class="date">Apr 2018 — Jul 2018</div>
+      <div><h3 class="role">Research Analyst</h3><div class="company">The Deal by S&amp;P Global</div><p>Early-career research experience in Chennai.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">How I work</div><h2>Curious by default.<br>Practical by design.</h2></div>
+      <p class="sectionintro">I’m comfortable moving between customer problems, business models, technical teams and execution — with a bias toward making ideas real.</p>
+    </div>
+    <div class="grid">
+      <article class="card third"><div class="eyebrow">01 / Product</div><h3>Build the right thing.</h3><p>Product development, roadmap definition, prioritization and translating complex requirements into clear delivery.</p></article>
+      <article class="card third"><div class="eyebrow">02 / Execution</div><h3>Get it into the world.</h3><p>Cross-functional leadership, operations, delivery coordination and hands-on work with AI coding tools and AWS deployments.</p></article>
+      <article class="card third"><div class="eyebrow">03 / Growth</div><h3>Make the model work.</h3><p>Strategic partnerships, commercial negotiations, go-to-market thinking and building new routes to revenue.</p></article>
+    </div>
+    <div class="grid" style="margin-top:18px;">
+      <article class="card wide">
+        <div class="eyebrow">Education</div>
+        <div class="edu"><h3>Indian Institute of Technology, Madras</h3><p>Strategic Management · Jan 2023 — Jun 2023</p></div>
+        <div class="edu"><h3>Mar Athanasius College of Engineering (MACE)</h3><p>B.Tech., Mechanical Engineering · 2013 — 2017</p></div>
+      </article>
+      <article class="card narrow bluecard">
+        <div class="eyebrow">Core strengths</div>
+        <h3>Product development. Leadership. A/B testing.</h3>
+        <p>Certified in Product Management: Building a Product Roadmap.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div class="eyebrow">The next good thing starts with a conversation</div>
+      <h2>Have a meaningful problem to solve?</h2>
+      <p>I’m open to product opportunities at the intersection of technology, healthcare and partnerships — and to strong opportunities in other industries where these skills can make a difference.</p>
+      <div class="actions">
+        <a class="button" href="mailto:hazeeb.pn@gmail.com">Email me <span class="arrow">↗</span></a>
+        <a class="textlink" href="https://www.linkedin.com/in/hazeeb-p-n/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span class="arrow">↗</span></a>
+      </div>
+      <p style="margin-top:24px;font-size:14px;">Chennai, Tamil Nadu, India · <a class="email" href="tel:+917736170758">+91 77361 70758</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="footerinner"><span>© <span id="year"></span> Hazeeb P N</span><span>Designed with clarity. Built for the web.</span><a href="#top">Back to top ↑</a></div></footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
